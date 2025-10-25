@@ -1,4 +1,9 @@
 # Fitting Poisson  distribution
+
+# NAME: PRASIDHA A
+
+# REGISTER NUMBER: 212224230204
+
 # Aim : 
 
 To fit poisson distribution for the arrival of objects per minute from the feeder
@@ -30,10 +35,26 @@ The Poisson distribution is the discrete probability distribution of the number 
 
 # Program :
 
- 
+ ```
+import numpy as np
+from scipy.stats import poisson
+
+n = int(input("Enter number of observations: "))
+data = [int(input(f"Enter arrivals at minute {i+1}: ")) for i in range(n)]
+
+lam = np.mean(data)
+
+print("\nFitted Poisson Distribution (λ = {:.2f}):".format(lam))
+for k in range(0, max(data)+(n-2)):
+    prob = poisson.pmf(k, lam)
+    print(f"P(X={k}) = {prob:.4f}")
+
+```
 
 # Output : 
 
+
+<img width="471" height="292" alt="image" src="https://github.com/user-attachments/assets/1cf5a6bb-917e-4fbb-b08e-91bb33aa9097" />
 
 
 # Results
